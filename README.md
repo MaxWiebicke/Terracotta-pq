@@ -34,6 +34,7 @@ constant pressure shear        | `pureDev`    | strain rate [1/s]   | strain inc
 isotropic compression          | `isoStress`  | stress rate [kPa/s] | stress increment [kPa]
 relaxation                     | `relaxation` | time step [s]       | time increment [s]
 creep                          | `creep`      | time step [s]       | time increment [s]
+oedometric creep               | `creepOed`   | time step [s]       | time increment [s]
 undrained creep                | `txuCreep`   | time step [s]       | time increment [s]
 
 A sample simulation is given in `Terracotta_main.py`.
