@@ -46,4 +46,4 @@ A sample simulation is given in `Terracotta_main.py`.
 
 [3] Y Jiang, M Liu (2009). Granular solid hydrodynamics. Granular Matter 11, 139–156. doi:10.1007/s10035-009-0137-3
 
-
+[4] P Virtanen  and SciPy 1.0 Contributors (2020). SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. Nature Methods, 17(3), 261-272. doi:10.1038/s41592-019-0686-2
