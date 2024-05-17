@@ -171,6 +171,15 @@ def stateVarRatesComplexLoading(t,stateVar,*data):
         deps_v, deps_s = fsolve(funcComplexLoading, (1.e-6, 0), args)
         
         dStrain = numpy.array([deps_v, deps_s])
+        
+    elif testType == "creepOed":
+        args = (stateVar,dStrainPrev,dt,modelParam,testType,loadingRate)
+        deps1, dsig3 = fsolve(funcComplexLoading, (dStrainPrev[0], dStrainPrev[1]), args)
+        deps3 = 0
+        deps_v = deps1+2*deps3
+        deps_s = 2/3*(deps1-deps3)
+        
+        dStrain = numpy.array([deps_v, deps_s])
     
     elif testType == "txd":
         args = (stateVar,dStrainPrev,dt,modelParam,testType,loadingRate)
@@ -252,6 +261,16 @@ def funcComplexLoading(vars, *data):
         dp = 0
         dq = 0
         
+    elif testType=="creepOed":
+        deps1, dsig3 = vars
+        deps3 = 0
+        dsig1 = 0
+        
+        dp = (dsig1+2*dsig3)/3.
+        dq = dsig1-dsig3
+        deps_v = deps1+2*deps3
+        deps_s = 2/3*(deps1-deps3)
+        
     elif testType=="txd":
         deps1 = loadingRate
         
@@ -331,7 +350,7 @@ def integratePath(stateVar,modelParam,testing,loadingRates,targetIncs):
         print("loading: "+testing[i] )
         testType=testing[i]
         # determine step sizes for integration
-        if testType=="relaxation" or testType=="creep" or testType=="txuCreep":
+        if testType=="relaxation" or testType=="creep" or testType=="creepOed" or testType=="txuCreep":
             #time increment for the integration step
             dt = loadingRates[i]
             steps = int(targetIncs[i]/dt)

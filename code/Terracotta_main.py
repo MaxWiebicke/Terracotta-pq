@@ -46,11 +46,11 @@ print("initial state variables \n", stateVar)
 #loading rate gives the 
 # - strain rate in the case of txu, iso, oed, txd, pureDev
 # - stress rate in the case of isoStress
-# - time step in the case of relaxation, creep, txuCreep
+# - time step in the case of relaxation, creep, creepOed, txuCreep
 #targetIncs defines the total increment of 
 # - strain in the case of txu, iso, oed, txd, pureDev
 # - stress in the case of isoStress
-# - time in the case of relaxation, creep, txuCreep
+# - time in the case of relaxation, creep, creepOed, txuCreep
 
 testing = ["txu","relaxation"]
 loadingRates = [2.e-5, 1.e-2]
