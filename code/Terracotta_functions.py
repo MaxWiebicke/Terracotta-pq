@@ -302,7 +302,7 @@ def funcComplexLoading(vars, *data):
     
     dpe = 6*stress[0]*deps_v + Me[0,0]*deps_v + Me[0,1]*deps_s - Tm*(Me[0,0]*(a*stress[0]+b*stress[1])+Me[0,1]*(b*stress[0]+c*stress[1]))
     dpd = 2*alpha/Gamma*(deps_v*dTm + Tm*(deps_v-dStrainPrev[0])/dt)
-    dpT = Tm*dTm*2
+    dpT = Tm*dTm*2/Gamma
     
     dqe = 6*stress[1]*deps_v + Me[1,0]*deps_v + Me[1,1]*deps_s - Tm*(Me[1,0]*(a*stress[0]+b*stress[1])+Me[1,1]*(b*stress[0]+c*stress[1]))
     dqd = 2*gamma/Gamma*( deps_s*dTm + Tm*(deps_s-dStrainPrev[1])/dt)
